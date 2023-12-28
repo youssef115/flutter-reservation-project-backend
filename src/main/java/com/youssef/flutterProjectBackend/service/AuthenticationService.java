@@ -40,6 +40,7 @@ public class AuthenticationService implements IAuthenticationService{
                 .role(registerRequestModel.getRole())
                 .CIN(registerRequestModel.getCin())
                 .address(registerRequestModel.getAddress())
+                .phone(registerRequestModel.getPhone())
                 .build();
         userRepository.save(user);
         var jwtToken=jwtService.generateToken(user);

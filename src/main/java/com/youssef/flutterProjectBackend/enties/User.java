@@ -28,10 +28,13 @@ public class User implements UserDetails {
     private Long id;
     private String firstname;
     private String lastname;
+    @Column(unique = true)
     private String email;
     private String password;
-    @Column(name="cin")
+    @Column(name="cin",unique = true)
     private Long CIN;
+    @Column(name="phone",unique = true)
+    private Long phone;
     private String address;
     @Enumerated(EnumType.STRING)
     private Role role;

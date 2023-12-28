@@ -5,18 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequestModel {
-
+@Data
+public class UserResponse {
     private String firstname;
     private String lastname;
     private String email;
-    private String password;
-    private Role role;
     private Long cin;
-    private String address;
-    private Long phone;
+    private Role role;
 }
