@@ -30,7 +30,8 @@ public class ReservationService implements IReservationService{
     }
 
     @Override
-    public List<Reservation> getReservationByEmailOrByToolName(String userEmail, String toolName) {
+    public List<Reservation> getReservationByEmailOrByToolName(String userEmail, Optional<String> toolName) {
+
         return reservationRepository.findByUserReservationEmailOrToolReservationTitle(userEmail,toolName).orElseThrow(()->new ReservationApiException(HttpStatus.NOT_FOUND,"can't find any reservation with the data provided"));
     }
 

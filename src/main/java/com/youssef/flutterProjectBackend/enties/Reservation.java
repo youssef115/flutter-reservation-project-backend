@@ -23,7 +23,7 @@ public class Reservation {
     private Long duration;
     @ManyToOne
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonIgnoreProperties(value = { "id","role","address","password","authorities","username","cin","accountNonExpired","accountNonLocked","credentialsNonExpired","enabled","email" })
+    @JsonIgnoreProperties(value = { "role","address","password","authorities","username","cin","accountNonExpired","accountNonLocked","credentialsNonExpired","enabled","email" })
     private User userReservation;
     @ManyToOne
     @JsonInclude(JsonInclude.Include.NON_NULL)

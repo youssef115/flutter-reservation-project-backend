@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface ToolRepository extends JpaRepository<Tool,Integer> {
     public Optional<List<Tool>> findAllByCategoryTitle(String categoryTitle);
+    public Optional<List<Tool>> findAllByUserEmail(String userEmail);
 }

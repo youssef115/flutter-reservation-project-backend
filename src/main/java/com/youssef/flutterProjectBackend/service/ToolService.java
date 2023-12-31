@@ -1,6 +1,7 @@
 package com.youssef.flutterProjectBackend.service;
 
 import com.youssef.flutterProjectBackend.enties.Tool;
+import com.youssef.flutterProjectBackend.enties.User;
 import com.youssef.flutterProjectBackend.handler.ReservationApiException;
 import com.youssef.flutterProjectBackend.models.Status;
 import com.youssef.flutterProjectBackend.repository.ToolRepository;
@@ -56,6 +57,12 @@ public class ToolService implements IToolService{
         Tool tool=toolRepository.findById(id).get();
         tool.setStatus(Status.AVAILABLE);
         return tool;
+    }
+
+    @Override
+    public List<Tool> findAllByUserEmail(String userEmail) {
+
+        return toolRepository.findAllByUserEmail(userEmail).orElseThrow(()->new ReservationApiException(HttpStatus.NOT_FOUND,"no tools for this provider"));
     }
 
 

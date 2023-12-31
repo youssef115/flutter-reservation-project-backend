@@ -1,6 +1,7 @@
 package com.youssef.flutterProjectBackend.enties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.youssef.flutterProjectBackend.models.Status;
 import jakarta.persistence.*;
@@ -23,10 +24,11 @@ public class Tool {
     private String title;
     @ManyToOne
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnoreProperties(value={"title"})
     Category category;
     @ManyToOne
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonIgnore
+    @JsonIgnoreProperties(value = { "firstname","lastname","phone","role","address","password","authorities","username","cin","accountNonExpired","accountNonLocked","credentialsNonExpired","enabled","email" })
     private User user;
     private String imageUrl;
     private String smallDescription;

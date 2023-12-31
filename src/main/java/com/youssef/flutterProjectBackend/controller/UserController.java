@@ -22,6 +22,7 @@ public class UserController {
     public ResponseModel<UserResponse> getUserByEmail(@PathVariable String email){
         User user=iUserService.getUserByEmail(email);
         var responseUser= UserResponse.builder()
+                .id(user.getId())
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
                 .email(user.getEmail())

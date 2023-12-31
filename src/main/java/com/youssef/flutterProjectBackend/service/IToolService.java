@@ -17,4 +17,6 @@ public interface IToolService {
 
     public Tool availableTool(int id);
 
+    public List<Tool> findAllByUserEmail(String userEmail);
+
 }

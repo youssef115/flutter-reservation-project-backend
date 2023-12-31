@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/reservation")
@@ -21,7 +22,7 @@ public class ReservationController {
         return new ResponseModel<>(HttpStatus.OK.value(), "new Reservation is added successfully",reservationService.createReservation(reservation));
     }
     @GetMapping("/query")
-    public ResponseModel<List<Reservation>> getReservationByUserEmailOrToolTitle(@RequestParam String email,@RequestParam String toolTitle){
+    public ResponseModel<List<Reservation>> getReservationByUserEmailOrToolTitle(@RequestParam String email, @RequestParam Optional<String> toolTitle){
         return new ResponseModel<>(HttpStatus.OK.value(), "all the reservation based on "+email+" "+toolTitle,reservationService.getReservationByEmailOrByToolName(email,toolTitle));
     }
 

@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<Reservation,Long> {
 
-    Optional<List<Reservation>> findByUserReservationEmailOrToolReservationTitle(String userEmail,String toolName);
+    Optional<List<Reservation>> findByUserReservationEmailOrToolReservationTitle(String userEmail, Optional<String> toolName);
 }
